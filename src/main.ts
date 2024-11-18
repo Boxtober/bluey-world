@@ -5,10 +5,6 @@ import './assets/tailwind.scss';
 
 import FontAwesomeIcon from './assets/fontawesome';
 
-
-
-
-
 const app = createApp(App);
 app.component('font-awesome-icon', FontAwesomeIcon);
 

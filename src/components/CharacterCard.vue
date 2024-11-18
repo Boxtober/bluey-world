@@ -136,7 +136,7 @@ button {
 h3,
 span {
     font-family: "Chewy", serif;
-    font-size: 24px;
+    font-size: 21px;
     font-weight: bolder;
 }
 .txt-blue {

@@ -75,7 +75,7 @@ export default {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 8rem;
 }
 
 h1 {

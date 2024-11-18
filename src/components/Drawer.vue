@@ -3,7 +3,7 @@
         <div v-show="isOpen" class="drawer">
             <div class="drawer-content">
                 <div class="title">
-                    <h3>My Favorites</h3>
+                    <h3 class="title">My Favorites</h3>
                     <button class="close-btn" @click="closeDrawer">×</button>
                 </div>
                 <div class="favorites-list">
@@ -71,6 +71,7 @@ const goToCharacterPage = (character) => {
     transition: transform 0.3s ease-out;
     z-index: 9999;
     overflow-y: auto;
+    color: #5f5e5b;
 }
 
 .drawer-content {
@@ -116,6 +117,8 @@ const goToCharacterPage = (character) => {
     align-items: center;
     justify-content: space-between;
     font-weight: bolder;
+    font-family: "Chewy", sans-serif;
+    font-size: 24px;
 }
 .mini-card {
     display: flex;

@@ -107,22 +107,44 @@ const filterByBreed = (breed) => {
 h2 {
     font-weight: bold;
     font-size: 32px;
-    font-family: "Outfit", sans-serif;
+    font-family: "Chewy", sans-serif;
     color: #5a5a87;
     padding: 2rem;
 }
 .footer {
-    position: relative;
+    position: fixed;
     bottom: 0;
+    /* width: auto;
+    height: 98px; */
+    width: 100%;
+    height: auto;
 }
 .characters-grid {
     font-family: "Outfit", sans-serif;
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 1fr);
     width: 100%;
     height: 100%;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: 8rem;
     gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .characters-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .characters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .characters-grid {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
