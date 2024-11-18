@@ -25,7 +25,7 @@
                             class="icon-button"
                             @click="goToCharacterPage(fav)"
                         >
-                            <p>Go to {{ fav.name }}</p>
+                            <p>Go to {{ fav.name }} page !</p>
                         </button>
                     </div>
                 </div>
@@ -37,7 +37,6 @@
 <script setup lang="ts">
 import { defineProps, defineEmits } from "vue";
 
-// Définir les propriétés du composant
 const props = defineProps({
     isOpen: {
         type: Boolean,
@@ -49,17 +48,14 @@ const props = defineProps({
     },
 });
 
-// Définir les événements à émettre
 const emit = defineEmits(["go-to-character", "close"]);
 
-// Fonction pour fermer le Drawer
 const closeDrawer = () => {
-    emit("close"); // Émettre l'événement "close"
+    emit("close");
 };
 
-// Fonction pour aller à la page du personnage
 const goToCharacterPage = (character) => {
-    emit("go-to-character", character); // Émettre l'événement "go-to-character"
+    emit("go-to-character", character);
 };
 </script>
 
@@ -93,7 +89,7 @@ const goToCharacterPage = (character) => {
     gap: 1rem;
     width: 100%;
     max-height: calc(100vh - 80px);
-    overflow-y: scroll; /* Permet de défiler à l'intérieur de la liste des favoris */
+    overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: orange transparent;
 }

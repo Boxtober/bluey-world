@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <div class="img-txt" @click="goToCharacterPage()">
+        <div class="img-txt" @click="goToCharacterPage">
             <img
                 :src="props.character.image"
                 alt="Character Image"
@@ -9,24 +9,19 @@
             <div class="card-body">
                 <h3>
                     {{ props.character.name }}
-                    <span v-if="character.last_name">
-                        {{ props.character.last_name }}</span
-                    >
+                    <span v-if="props.character.last_name">
+                        {{ props.character.last_name }}
+                    </span>
                 </h3>
                 <p
                     :class="[
-                        character.breed === 'Blue Heeler'
+                        props.character.breed === 'Blue Heeler'
                             ? 'txt-blue'
                             : 'txt-orange',
                     ]"
                 >
                     <strong>Breed:</strong> {{ props.character.breed }}
                 </p>
-
-                <!-- <p class="catchphrase">
-                    <span class="big">“ </span>{{ props.character.catchphrase
-                    }}<span class="big"> ”</span>
-                </p> -->
 
                 <p class="catchphrase">“ {{ props.character.catchphrase }} ”</p>
             </div>
@@ -38,12 +33,16 @@
 </template>
 
 <script setup>
-import { defineProps, ref, defineEmits } from "vue";
+import { defineProps, defineEmits, ref } from "vue";
 import { useRouter } from "vue-router";
 
 const props = defineProps({
     character: {
         type: Object,
+        required: true,
+    },
+    isFavorite: {
+        type: Boolean,
         required: true,
     },
     toggleFavorite: {
@@ -52,18 +51,17 @@ const props = defineProps({
     },
 });
 
-const router = useRouter();
-const emit = defineEmits(["go-to-character"]);
+const emit = defineEmits(["go-to-character"]); //permet d'envoyer un event à Home
 
 const goToCharacterPage = () => {
-    emit("go-to-character", props.character);
+    emit("go-to-character", props.character); // emet l'event "go-to-character" avec les données du personnage en argument
+    // dans Home.vue, l'event est capté pour changer la page grace à router.push
 };
 
-// Gestion du cœur
-const isHeartFull = ref(false); // Initialise à "vide" (far)
+const isHeartFull = ref(props.isFavorite);
 
 const toggleHeart = () => {
-    isHeartFull.value = !isHeartFull.value; // Alterne entre vide et rempli
+    isHeartFull.value = !isHeartFull.value;
     props.toggleFavorite(props.character, isHeartFull.value);
 };
 </script>
@@ -76,7 +74,6 @@ const toggleHeart = () => {
     transition: ease-in-out;
     border-radius: 25px;
     padding: 2rem;
-    margin: 10px;
     text-align: left;
     background-color: #f9f9f9;
 

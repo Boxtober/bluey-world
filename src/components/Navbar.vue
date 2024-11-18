@@ -4,7 +4,9 @@
         <div class="nav-contain">
             <router-link to="/" class="link">HOME</router-link>
             <router-link to="/about" class="link">ABOUT</router-link>
-            <button @click="openDrawer">❤</button>
+            <button @click="openDrawer">
+                <font-awesome-icon :icon="['fas', 'heart']" />
+            </button>
         </div>
     </nav>
 </template>

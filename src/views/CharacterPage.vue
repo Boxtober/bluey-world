@@ -17,32 +17,32 @@
         <p><strong>Description:</strong> {{ character.description }}</p>
     </div>
     <div v-else>
-        <p>oups...</p>
+        <p>Oups... Aucun personnage trouvé.</p>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import { getCharacters } from "@/services/characterService";
+
+import charactersData from "../../public/characters.json";
 
 export default defineComponent({
     name: "CharacterPage",
     setup() {
         const route = useRoute();
-        const characterId = route.params.id as number;
-
+        const characterId = parseInt(route.params.id as string, 10);
         const character = ref<any>(null);
 
+        const getCharacters = async () => {
+            return charactersData;
+        };
+
         onMounted(async () => {
-            try {
-                const characters = await getCharacters();
-                character.value = characters.find(
-                    (char: number) => char.id === characterId
-                );
-            } catch (error) {
-                console.error("Error loading characters:", error);
-            }
+            const characters = await getCharacters();
+            character.value = characters.find(
+                (char: any) => parseInt(char.id, 10) === characterId
+            );
         });
 
         return { character };
