@@ -1,5 +1,44 @@
+<template>
+    <div class="card">
+        <div class="img-txt" @click="goToCharacterPage()">
+            <img
+                :src="props.character.image"
+                alt="Character Image"
+                class="card-image"
+            />
+            <div class="card-body">
+                <h3>
+                    {{ props.character.name }}
+                    <span v-if="character.last_name">
+                        {{ props.character.last_name }}</span
+                    >
+                </h3>
+                <p
+                    :class="[
+                        character.breed === 'Blue Heeler'
+                            ? 'txt-blue'
+                            : 'txt-orange',
+                    ]"
+                >
+                    <strong>Breed:</strong> {{ props.character.breed }}
+                </p>
+
+                <!-- <p class="catchphrase">
+                    <span class="big">“ </span>{{ props.character.catchphrase
+                    }}<span class="big"> ”</span>
+                </p> -->
+
+                <p class="catchphrase">“ {{ props.character.catchphrase }} ”</p>
+            </div>
+        </div>
+        <button class="icon-button" @click="toggleHeart">
+            <font-awesome-icon :icon="[isHeartFull ? 'fas' : 'far', 'heart']" />
+        </button>
+    </div>
+</template>
+
 <script setup>
-import { defineProps, ref } from "vue";
+import { defineProps, ref, defineEmits } from "vue";
 import { useRouter } from "vue-router";
 
 const props = defineProps({
@@ -14,11 +53,10 @@ const props = defineProps({
 });
 
 const router = useRouter();
+const emit = defineEmits(["go-to-character"]);
+
 const goToCharacterPage = () => {
-    router.push({
-        name: "CharacterPage",
-        params: { id: props.character.id },
-    });
+    emit("go-to-character", props.character);
 };
 
 // Gestion du cœur
@@ -29,38 +67,6 @@ const toggleHeart = () => {
     props.toggleFavorite(props.character, isHeartFull.value);
 };
 </script>
-
-<template>
-    <div class="card">
-        <div class="img-txt" @click="goToCharacterPage()">
-            <img
-                :src="props.character.image"
-                alt="Character Image"
-                class="card-image"
-            />
-            <div class="card-body">
-                <h3>{{ props.character.name }}</h3>
-                <p
-                    :class="[
-                        character.breed === 'Blue Heeler'
-                            ? 'txt-blue'
-                            : 'txt-orange',
-                    ]"
-                >
-                    <strong>Breed:</strong> {{ props.character.breed }}
-                </p>
-
-                <p class="catchphrase">
-                    <span class="big">“ </span>{{ props.character.catchphrase
-                    }}<span class="big"> ”</span>
-                </p>
-            </div>
-        </div>
-        <button class="icon-button" @click="toggleHeart">
-            <font-awesome-icon :icon="[isHeartFull ? 'fas' : 'far', 'heart']" />
-        </button>
-    </div>
-</template>
 
 <style scoped lang="scss">
 .card {
@@ -105,6 +111,7 @@ const toggleHeart = () => {
     }
     .catchphrase {
         padding-top: 0.5rem;
+        line-height: 16px;
     }
     .big {
         font-weight: bolder;
@@ -129,7 +136,10 @@ button {
     border: #bbecff solid 2px;
 }
 
-h3 {
+h3,
+span {
+    font-family: "Chewy", serif;
+    font-size: 24px;
     font-weight: bolder;
 }
 .txt-blue {

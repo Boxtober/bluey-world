@@ -1,7 +1,8 @@
 [
     {
         "id": "1",
-        "name": "Bluey Heeler",
+        "name": "Bluey",
+        "last_name": "Heeler",
         "age": 6,
         "breed": "Blue Heeler",
         "description": "Bluey est une jeune chienne pleine d'énergie, curieuse et imaginative. Elle adore jouer à des jeux de rôle avec sa famille et ses amis, et elle transforme les moments du quotidien en aventures extraordinaires.",
@@ -12,7 +13,8 @@
     },
     {
         "id": "2",
-        "name": "Bingo Heeler",
+        "name": "Bingo",
+        "last_name": "Heeler",
         "age": 4,
         "breed": "Red Heeler",
         "description": "Bingo est la petite sœur de Bluey. Elle est gentille, curieuse et aime plonger dans des jeux imaginatifs. Elle adore explorer le monde autour d'elle et est souvent captivée par les petites merveilles.",
@@ -23,7 +25,8 @@
     },
     {
         "id": "3",
-        "name": "Chilli Heeler",
+        "name": "Chilli",
+        "last_name": "Heeler",
         "age": "Adulte",
         "breed": "Red Heeler",
         "description": "Chilli est la maman de Bluey et Bingo. Elle est à la fois sage et joueuse, et elle adore se joindre aux jeux de ses enfants. Elle aime également passer du temps avec ses amis et pratiquer le hockey.",
@@ -34,7 +37,8 @@
     },
     {
         "id": "4",
-        "name": "Bandit Heeler",
+        "name": "Bandit",
+        "last_name": "Heeler",
         "age": "Adulte",
         "breed": "Blue Heeler",
         "description": "Bandit est le papa de Bluey et Bingo. Il est drôle et aime participer aux jeux imaginatifs avec ses filles, tout en leur enseignant des leçons de vie importantes.",
@@ -46,6 +50,7 @@
     {
         "id": "5",
         "name": "Rusty",
+        "last_name": "",
         "age": 6,
         "breed": "Red Kelpie",
         "description": "Rusty est un ami de Bluey et un talentueux joueur de cricket. Il aime jouer à l'armée avec Jack et répare souvent des objets grâce à ses compétences de bricoleur.",
@@ -56,7 +61,8 @@
     },
     {
         "id": "6",
-        "name": "Muffin Cupcake Heeler",
+        "name": "Muffin Cupcake",
+        "last_name": "Heeler",
         "age": 3,
         "breed": "White Heeler",
         "description": "Muffin est la cousine énergique de Bluey et Bingo. Elle a du mal à partager et se retrouve parfois dans des situations hilarantes à cause de sa personnalité fougueuse.",

@@ -8,6 +8,7 @@
                 :key="character.id"
                 :character="character"
                 :toggleFavorite="toggleFavorite"
+                @go-to-character="goToCharacterPage"
             />
         </div>
     </div>
@@ -16,6 +17,7 @@
         :isOpen="isDrawerOpen"
         @close="toggleDrawer"
         :favorites="favorites"
+        @go-to-character="goToCharacterPage"
     />
 </template>
 
@@ -25,6 +27,7 @@ import CharacterCard from "../components/CharacterCard.vue";
 import Banner from "../components/Banner.vue";
 import Drawer from "../components/Drawer.vue";
 import Navbar from "../components/Navbar.vue";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
     name: "Home",
@@ -71,6 +74,14 @@ export default defineComponent({
                     (fav) => fav.id !== character.id
                 );
             }
+        },
+
+        goToCharacterPage(character) {
+            // Remplace `useRouter()` par `this.$router`
+            this.$router.push({
+                name: "CharacterPage",
+                params: { id: character.id },
+            });
         },
     },
 });
