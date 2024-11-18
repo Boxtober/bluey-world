@@ -1,0 +1,90 @@
+[
+    {
+        "id": "1",
+        "name": "Bluey Heeler",
+        "age": 6,
+        "breed": "Blue Heeler",
+        "description": "Bluey est une jeune chienne pleine d'énergie, curieuse et imaginative. Elle adore jouer à des jeux de rôle avec sa famille et ses amis, et elle transforme les moments du quotidien en aventures extraordinaires.",
+        "aliases": ["Janet", "Barnicus", "Rhonda", "Karen"],
+        "favorite_activities": ["Jouer à Taxi", "Hôtel", "Sirène"],
+        "catchphrase": "Uh! Just having a nana nap, love.",
+        "image": "https://www.bluey.tv/wp-content/uploads/2023/07/Bluey.png"
+    },
+    {
+        "id": "2",
+        "name": "Bingo Heeler",
+        "age": 4,
+        "breed": "Red Heeler",
+        "description": "Bingo est la petite sœur de Bluey. Elle est gentille, curieuse et aime plonger dans des jeux imaginatifs. Elle adore explorer le monde autour d'elle et est souvent captivée par les petites merveilles.",
+        "aliases": ["Rita", "Slobberdobber", "Snowdrop"],
+        "favorite_activities": ["Papillon", "Danse", "Yoga Ball"],
+        "catchphrase": "Ah! This is trifficult!",
+        "image": "https://www.bluey.tv/wp-content/uploads/2023/07/B2.png"
+    },
+    {
+        "id": "3",
+        "name": "Chilli Heeler",
+        "age": "Adulte",
+        "breed": "Red Heeler",
+        "description": "Chilli est la maman de Bluey et Bingo. Elle est à la fois sage et joueuse, et elle adore se joindre aux jeux de ses enfants. Elle aime également passer du temps avec ses amis et pratiquer le hockey.",
+        "aliases": ["Chilli Dog", "Lady Gaberdeen", "Pavlova"],
+        "favorite_activities": ["Hockey", "Aventures", "Danser à la maison"],
+        "catchphrase": "Remember I’ll always be here for you.",
+        "image": "https://www.bluey.tv/wp-content/uploads/2023/07/Chilli.png"
+    },
+    {
+        "id": "4",
+        "name": "Bandit Heeler",
+        "age": "Adulte",
+        "breed": "Blue Heeler",
+        "description": "Bandit est le papa de Bluey et Bingo. Il est drôle et aime participer aux jeux imaginatifs avec ses filles, tout en leur enseignant des leçons de vie importantes.",
+        "aliases": ["Bandit", "Dadoo"],
+        "favorite_activities": ["Regarder du cricket", "Jouer à cache-cache"],
+        "catchphrase": "Oh biscuits!",
+        "image": "https://www.bluey.tv/wp-content/uploads/2023/07/Bandit.png"
+    },
+    {
+        "id": "5",
+        "name": "Rusty",
+        "age": 6,
+        "breed": "Red Kelpie",
+        "description": "Rusty est un ami de Bluey et un talentueux joueur de cricket. Il aime jouer à l'armée avec Jack et répare souvent des objets grâce à ses compétences de bricoleur.",
+        "aliases": [],
+        "favorite_activities": ["Bricolage", "Jeux d'aventure", "Cricket"],
+        "catchphrase": "Listen up, sailors. This will be a long and dangerous journey.",
+        "image": "https://www.bluey.tv/wp-content/uploads/2023/07/Rusty-1.png"
+    },
+    {
+        "id": "6",
+        "name": "Muffin Cupcake Heeler",
+        "age": 3,
+        "breed": "White Heeler",
+        "description": "Muffin est la cousine énergique de Bluey et Bingo. Elle a du mal à partager et se retrouve parfois dans des situations hilarantes à cause de sa personnalité fougueuse.",
+        "aliases": ["Sheila", "Gladys", "Bububabu"],
+        "favorite_activities": ["Jouer à la maison", "Se déguiser"],
+        "catchphrase": "Coconuts have water in them!",
+        "image": "https://www.bluey.tv/wp-content/uploads/2023/07/Muffin-1.png"
+    },
+    {
+        "id": "7",
+        "name": "Mackenzie",
+        "age": 6,
+        "breed": "Border Collie",
+        "description": "",
+        "aliases": ["Sheila", "Gladys", "Bububabu"],
+        "favorite_activities": ["Jouer à la maison", "Se déguiser"],
+        "catchphrase": "Bingo, you get to go to the airport tomorrow!",
+        "image": "https://www.bluey.tv/wp-content/uploads/2023/07/MACKENZIE-1.png"
+    },
+    {
+        "id": "8",
+        "name": "Chloe",
+        "age": 6,
+        "breed": "Dalmatien",
+        "description": "",
+        "aliases": ["Sheila", "Gladys", "Bububabu"],
+        "favorite_activities": ["Jouer à la maison", "Se déguiser"],
+        "catchphrase": "Yeah, this octopus can.",
+        "image": "https://www.bluey.tv/wp-content/uploads/2023/07/Untitled-1.png"
+    }
+]
