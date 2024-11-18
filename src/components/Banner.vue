@@ -13,7 +13,7 @@ export default {
     name: "Banner",
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 .banner {
     position: relative;
     width: 100%;
@@ -22,34 +22,35 @@ export default {
     background-size: cover;
     background-position: center;
     border-radius: 0 0 40px 40px;
-}
 
-.banner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(81, 153, 209, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 6rem;
-    border-radius: 0 0 40px 40px;
-}
+    .banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(81, 153, 209, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+        padding: 6rem;
+        border-radius: 0 0 40px 40px;
 
-h1 {
-    font-size: 72px;
-    font-family: "Outfit", serif;
-    margin: 72px auto;
-    color: white;
-    text-shadow: 0 0 12px rgb(121, 233, 255);
-}
-.second-typo {
-    font-family: "Chewy", serif;
-    font-size: 84px;
+        h1 {
+            font-size: 72px;
+            font-family: "Outfit", serif;
+            margin: 72px auto;
+            color: white;
+            text-shadow: 0 0 12px rgb(121, 233, 255);
+
+            .second-typo {
+                font-family: "Chewy", serif;
+                font-size: 84px;
+            }
+        }
+    }
 }
 </style>

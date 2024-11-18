@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref } from "vue";
 import { useRouter } from "vue-router";
 
 const props = defineProps({
@@ -7,48 +7,62 @@ const props = defineProps({
         type: Object,
         required: true,
     },
+    toggleFavorite: {
+        type: Function,
+        required: true,
+    },
 });
 
 const router = useRouter();
-
 const goToCharacterPage = () => {
     router.push({
         name: "CharacterPage",
         params: { id: props.character.id },
     });
 };
+
+// Gestion du cœur
+const isHeartFull = ref(false); // Initialise à "vide" (far)
+
+const toggleHeart = () => {
+    isHeartFull.value = !isHeartFull.value; // Alterne entre vide et rempli
+    props.toggleFavorite(props.character, isHeartFull.value);
+};
 </script>
 
 <template>
-    <div class="card" @click="goToCharacterPage()">
-        <img
-            :src="props.character.image"
-            alt="Character Image"
-            class="card-image"
-        />
-        <div class="card-body">
-            <h3>{{ props.character.name }}</h3>
-            <p
-                :class="[
-                    character.breed === 'Blue Heeler'
-                        ? 'txt-blue'
-                        : 'txt-orange',
-                ]"
-            >
-                <strong>Breed:</strong> {{ props.character.breed }}
-            </p>
+    <div class="card">
+        <div class="img-txt" @click="goToCharacterPage()">
+            <img
+                :src="props.character.image"
+                alt="Character Image"
+                class="card-image"
+            />
+            <div class="card-body">
+                <h3>{{ props.character.name }}</h3>
+                <p
+                    :class="[
+                        character.breed === 'Blue Heeler'
+                            ? 'txt-blue'
+                            : 'txt-orange',
+                    ]"
+                >
+                    <strong>Breed:</strong> {{ props.character.breed }}
+                </p>
 
-            <p class="catchphrase">
-                <span class="big">“ </span>{{ props.character.catchphrase
-                }}<span class="big"> ”</span>
-            </p>
-
-            <button>❤</button>
+                <p class="catchphrase">
+                    <span class="big">“ </span>{{ props.character.catchphrase
+                    }}<span class="big"> ”</span>
+                </p>
+            </div>
         </div>
+        <button class="icon-button" @click="toggleHeart">
+            <font-awesome-icon :icon="[isHeartFull ? 'fas' : 'far', 'heart']" />
+        </button>
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .card {
     color: rgb(95, 94, 91);
     width: 280px;
@@ -59,9 +73,45 @@ const goToCharacterPage = () => {
     margin: 10px;
     text-align: left;
     background-color: #f9f9f9;
-    cursor: pointer;
+
     border: rgb(222, 219, 207) solid 2px;
+    .icon-button {
+        background: rgb(255, 136, 0);
+        border: none;
+        width: 32px;
+        color: white;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 18px;
+
+        &:hover {
+            background: rgb(255, 115, 0);
+        }
+    }
+    .img-txt {
+        cursor: pointer;
+    }
+    .card-image {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 100px;
+        background-color: #9ee4ff;
+    }
+    .catchphrase {
+        padding-top: 0.5rem;
+    }
+    .big {
+        font-weight: bolder;
+        font-size: 24px;
+    }
 }
+
 button {
     background: rgb(255, 136, 0);
     border: none;
@@ -78,22 +128,7 @@ button {
 .card:hover {
     border: #bbecff solid 2px;
 }
-.card-image {
-    width: 100%;
-    height: 210px;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 100px;
-    background-color: #9ee4ff;
-}
-.big {
-    font-weight: bolder;
-    font-size: 24px;
-}
 
-.catchphrase {
-    padding-top: 0.5rem;
-}
 h3 {
     font-weight: bolder;
 }
@@ -106,8 +141,8 @@ h3 {
 .card-body {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
-    justify-content: space-between;
+    padding-top: 1rem;
+    justify-content: flex-start;
     height: 170px;
 }
 </style>

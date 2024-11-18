@@ -7,11 +7,16 @@
                 v-for="character in characters"
                 :key="character.id"
                 :character="character"
+                :toggleFavorite="toggleFavorite"
             />
         </div>
     </div>
     <Navbar @open-drawer="openDrawer" />
-    <Drawer :isOpen="isDrawerOpen" @close="toggleDrawer" />
+    <Drawer
+        :isOpen="isDrawerOpen"
+        @close="toggleDrawer"
+        :favorites="favorites"
+    />
 </template>
 
 <script lang="ts">
@@ -33,6 +38,7 @@ export default defineComponent({
         return {
             characters: [],
             isDrawerOpen: false,
+            favorites: [],
         };
     },
     created() {
@@ -50,14 +56,21 @@ export default defineComponent({
                 );
         },
         toggleDrawer() {
-            console.log("Toggling drawer");
             this.isDrawerOpen = !this.isDrawerOpen;
-            console.log("isDrawerOpen:", this.isDrawerOpen);
         },
         openDrawer() {
-            console.log("openDrawer method triggered");
             this.isDrawerOpen = true;
-            console.log("isDrawerOpen after opening:", this.isDrawerOpen);
+        },
+        toggleFavorite(character, isFavorite) {
+            if (isFavorite) {
+                // Ajouter aux favoris
+                this.favorites.push(character);
+            } else {
+                // Retirer des favoris
+                this.favorites = this.favorites.filter(
+                    (fav) => fav.id !== character.id
+                );
+            }
         },
     },
 });

@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .navbar {
     z-index: 2;
     position: fixed;
@@ -49,6 +49,13 @@ button {
     align-items: center;
     cursor: pointer;
     font-size: 16px;
+    transition: ease-in-out;
+}
+
+button:hover {
+    background: white;
+    border: 2px solid #5a5a87;
+    color: #5a5a87;
 }
 .nav-contain {
     display: flex;
